@@ -1,136 +1,43 @@
 # Desafio MB Web
 
-Somos a maior plataforma de negociação de criptomoedas e ativos alternativos da América Latina, criada para elevar a experiência de quem vivencia essa revolução, entregando o melhor serviço de negociação de ativos alternativos, com liberdade, segurança e liquidez. Sendo assim, nós existimos para mudar a maneira como as pessoas lidam com o dinheiro através da tecnologia.
+Para realizar a execução da atividade primeiro precisamos verificar a versão do node.js, foi usada a versão 14.0.0
 
-## Objetivo
+## Pilha de tecnologias
+Foram utilizadas apenas as bibliotecas abaixo para a excução da atividade
 
-Esse desafio tem como objetivo entender seus conhecimentos sobre a plataforma Web, assim como conceitos de base como HTML, CSS, protocolo HTTP e arquitetura cliente/servidor.
+| Tecnologia     |
+|----------------|
+| Express        |
+| Vue.js 3       |
+| JavaScript     |
+| HTML           | 
+| CSS            |
 
-## Projeto
-
-Criar uma aplicação cliente/servidor de cadastro de usuários.
-
-```mermaid
-flowchart LR
-    Client(Vue Registration Component) --> Server(NodeJS Express API)
-```
-
-## Características da aplicação cliente
-
-### Requisitos funcionais
-
-O formulário de cadastro deve ser exibido em 4 passos distintos conforme apresentado abaixo:
+## Teste / Excução
 
 > **Passo 1**
 
-**Campos de formulário**
-
-- Endereço de e-mail.
-- Tipo de cadastro: Pessoa Física (PF) ou Pessoa Jurídica (PJ)
-
-**Botões de ação**
-
-- Continuar: levar o usuário ao passo 2 do cadastro.
-
-**Validação**
-
-Validar se todos os campos foram preenchidos.
+    Realize o clone do projeto para sua máquina 
 
 > **Passo 2**
 
-Nesse passo, dependendo do tipo de cadastro escolhido, deve-se renderizar os campos da seguinte forma:
+Entre na pasta do projeto e utilize o comando abaixo para instalar as dependências do projeto
 
-**Campos de formulário para o cadastro PF**
-
-- Nome
-- CPF
-- Data de nascimento
-- Número de telefone
-
-**Campos de formulário para o cadastro PJ**
-
-- Razão social
-- CNPJ
-- Data de abertura da empresa
-- Telefone
-
-**Botões de ação**
-
-- Voltar: levar o usuário de volta ao passo 1 do cadastro.
-- Continuar: levar o usuário ao passo 3 do cadastro.
-
-**Validação**
-
-Validar se todos os campos foram preenchidos.
+```
+npm install 
+```
 
 > **Passo 3**
 
-**Campos de formulário**
+Para executar o projeto use o comando abaixo
+```
+npm start
+```
 
-- Senha de acesso
+A aplicação será disponibilizada na porta 3000, mas pode ser alterada em caso de necessidade, como solicitado o formulário será carregado a partir da url /registration, segue abaixo o link 
 
-**Botões de ação**
+[/registration](http://localhost:3000/registration)
 
-- Voltar: levar o usuário de volta ao passo 2 do cadastro.
-- Continuar: levar o usuário ao passo 4 do cadastro.
+O projeto está pronto para ser testado
 
-**Validação**
 
-Validar se todos os campos foram preenchidos.
-
-> **Passo 4**
-
-Esse passo consiste em permitir que o usuário revise todas as informações dadas e para isso é necessário que se apresente todos os campos dos passos anteriores, permitindo assim a revisão e possível alteração de quaisquer campo pelo usuário.
-
-**Botões de ação**
-
-- Voltar: levar o usuário de volta ao passo 3 do cadastro.
-- Cadastrar: submeter todos os dados informados pelo usuário a api de cadastro.
-
-**Validação**
-
-Validar se todos os campos foram preenchidos.
-
-### Layout
-
-Utilize a imagem abaixo como base de estilo para os componentes de formulário.
-
-![Telas Desafio MB Web](https://user-images.githubusercontent.com/83235141/225743749-ca86ca69-5902-4a75-bb42-d6c0fc169bf4.png)
-
-### Requisitos técnicos
-
-- VueJS/Javascript (não utilize Typescript)
-- Não utilize frameworks para requisições HTTP como Axios e similares, dê preferência ao fetch nativo
-- CSS/Sass desenvolvidos por você apenas (não utilize Tailwind ou outras frameworks de estilo, queremos entender como você estrutura classes e estilos)
-
-## Características da aplicação servidor
-
-Aplicação responsável por renderizar o formulário e receber a submissão dos dados ao final do cadastro.
-
-### Endpoints
-
-`[GET] /registration`
-
-- Responsável por renderizar um html simples que irá carregar os componentes do formulário.
-
-`[POST] /registration`
-
-- Api de cadastro responsável por receber os dados submetidos pelo usuário em formato JSON.
-
-**Validação**
-
-Validar antes de receber os dados se todos os campos foram preenchidos, caso não, retorne um erro com o código http adequado.
-
-### Requisitos técnicos
-
-- Express/Javascript (não utilize Typescript)
-
-## Dicas
-
-- Não é necessário que o componente de formulário seja renderizado no servidor (server side rendering).
-- Não iremos avaliar a fidelidade do layout apresentado, não é preciso investir tempo no “pixel perfect” para esse caso.
-- Apresente a sua implementação completa em um único repositório e com instruções do README.md de como rodar/testar a aplicação
-
-## Importante
-
-Esse código não será usado em nenhuma hipótese para qualquer fim a não ser o de avaliação de conhecimentos técnicos.
