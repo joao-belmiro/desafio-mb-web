@@ -1,0 +1,24 @@
+{
+  "name": "desafio-mb-web",
+  "version": "1.0.0",
+  "description": "Somos a maior plataforma de negociação de criptomoedas e ativos alternativos da América Latina, criada para elevar a experiência de quem vivencia essa revolução, entregando o melhor serviço de negociação de ativos alternativos, com liberdade, segurança e liquidez. Sendo assim, nós existimos para mudar a maneira como as pessoas lidam com o dinheiro através da tecnologia.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joao-belmiro/desafio-mb-web.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joao-belmiro/desafio-mb-web/issues"
+  },
+  "homepage": "https://github.com/joao-belmiro/desafio-mb-web#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
