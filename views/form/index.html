@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;1,100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="form/style.css">
+    <script src="form/index.js" type="module"></script>
+    <title>Desafio front-end MB</title>
+</head>
+
+<body>
+    <main>
+        <div id="app">
+            <div class="c">
+                <div class="c-card">
+                        <p class="c-card__step"> Etapa <span class="yellow-1">{{ step + 1 }}</span> de 4 </p>
+                        <h1 class="c-card__title">{{ getTitle(step, typeRegister) }}</h1>
+
+                        <form v-if="step === 0" @submit.prevent="firstStep(email)" class="c-card__form--1">
+                            <div class="c-card__form--input">
+                                <label class="form-label" for="email">Endereço de e-mail</label>
+                                <input class="form-input" id="email" type="text" v-model="email" required>
+                            </div>
+                            <div class="form-radio">
+                                <label class="form-radio__label">
+                                    <input type="radio" name="tipo-cadastro" value="PF" v-model="typeRegister" checked>
+                                    Pessoa Física
+                                </label>
+                                <label class="form-radio__label">
+                                    <input type="radio" name="tipo-cadastro" value="PJ" v-model="typeRegister">
+                                    Pessoa Jurídica
+                                </label>
+                            </div>
+
+                            <button type="submit" class="btn-submit yellow-2"> Continuar </button>
+                        </form>
+                        <form @submit.prevent="secondStep(typeRegister, name, cpfCnpj, date, phone)" v-if="step == 1">
+                            <div class="c-card__form--input">
+                                <label class="form-label" for="name">{{ typeRegister == 'PF' ? 'Nome': 'Razão social' }}</label>
+                                <input class="form-input" id="name" type="text" v-model="name" required>
+                            </div>
+                            <div class="c-card__form--input">
+                                <label class="form-label" for="cpfCnpj">{{ typeRegister == 'PF' ? 'CPF': 'CNPJ' }}</label>
+                                <input class="form-input" id="cpfCnpj" type="text" v-model="cpfCnpj" required>
+                            </div>
+                            <div class="c-card__form--input">
+                                <label class="form-label" for="date">{{ typeRegister == 'PF' ? 'Data de nascimento': 'Data de abertura' }}</label>
+                                <input class="form-input" id="date" type="date" v-model="date" required>
+                            </div>
+                            <div class="c-card__form--input">
+                                <label class="form-label" for="telefone">Telefone</label>
+                                <input class="form-input" id="telefone" type="text" v-model="phone" required>
+                            </div>
+                            <div class="form-submit__container">
+                                <button @click="step--" class="btn-prev w-50">Voltar</button>
+                                <button type="submit" class="btn-submit w-50 yellow-2"> Continuar </button>
+                            </div>
+                        </form>
+                        <form @submit.prevent = "thirdStep(password)" v-if="step == 2">
+                            <div class="c-card__form--input">
+                                <label class="form-label" for="password">Sua senha</label>
+                                <input class="form-input" id="password" type="password" v-model="password" required>
+                            </div>
+                            <div class="form-submit__container">
+                                <button @click="step--" class="btn-prev w-50">Voltar</button>
+                                <button type="submit" class="btn-submit w-50 yellow-2"> Continuar </button>
+                            </div>
+                        </form>
+                        <form @submit.prevent = "register(email, typeRegister, name, cpfCnpj, date, phone, password)" v-if="step == 3">
+                            <div class="c-card__form--input">
+                                <label class="form-label" for="email">Endereço de e-mail</label>
+                                <input class="form-input" id="email" type="text" v-model="email" required>
+                            </div>
+                            <div class="c-card__form--input">
+                                <label class="form-label" for="name">{{ typeRegister == 'PF' ? 'Nome': 'Razão social' }}</label>
+                                <input class="form-input" id="name" type="text" v-model="name" required>
+                            </div>
+                            <div class="c-card__form--input">
+                                <label class="form-label" for="cpfCnpj">{{ typeRegister == 'PF' ? 'CPF': 'CNPJ' }}</label>
+                                <input class="form-input" id="cpfCnpj" type="text" v-model="cpfCnpj" required>
+                            </div>
+                            <div class="c-card__form--input">
+                                <label class="form-label" for="date">{{ typeRegister == 'PF' ? 'Data de nascimento': 'Data de abertura' }}</label>
+                                <input class="form-input" id="date" type="date" v-model="date" required>
+                            </div>
+                            <div class="c-card__form--input">
+                                <label class="form-label" for="telefone">Telefone</label>
+                                <input class="form-input" id="telefone" type="text" v-model="phone" required>
+                            </div>
+                            <div class="c-card__form--input">
+                                <label class="form-label" for="password">Sua senha</label>
+                                <input class="form-input" id="password" type="password" v-model="password" required>
+                            </div>
+                            <div class="form-submit__container">
+                                <button @click="step--" class="btn-prev w-50">Voltar</button>
+                                <button type="submit" class="btn-submit w-50 yellow-2"> Continuar </button>
+                            </div>
+                        </form>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
