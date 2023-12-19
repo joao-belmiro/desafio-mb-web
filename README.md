@@ -17,7 +17,7 @@ Foram utilizadas apenas as bibliotecas abaixo para a excução da atividade
 
 > **Passo 1**
 
-    Realize o clone do projeto para sua máquina 
+Realize o clone do projeto para sua máquina 
 
 > **Passo 2**
 
